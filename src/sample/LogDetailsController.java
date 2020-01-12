@@ -51,7 +51,7 @@ public class LogDetailsController {
 		LogDetailsDto logDetailsDto = handleHttpConnection.getResponse(systemRefId);
 
 		createdDate.setText(logDetailsDto.getCreatedDate());
-		matchPercentage.setText(logDetailsDto.getMatchPercentage());
+		matchPercentage.setText(logDetailsDto.getMatchPercentage() + " %");
 		sourceImgUri.setText(logDetailsDto.getSourceImgUri());
 		targetImgUri.setText(logDetailsDto.getTargetImgUri());
 		rawResponse.setText(logDetailsDto.getRawResponse());

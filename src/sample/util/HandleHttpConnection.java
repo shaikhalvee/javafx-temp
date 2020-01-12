@@ -31,9 +31,9 @@ public class HandleHttpConnection {
 						.serializeSpecialFloatingPointValues()
 						.create();
 				String jsonString = gson.toJson(jsonElement);
-				int len = jsonString.length();
-				String trimmedString = jsonString.substring(4, len - 2);
-				logDetailsDto = gson.fromJson(trimmedString, LogDetailsDto.class);
+				jsonString = jsonString.replace("[", "").trim();
+				jsonString = jsonString.replace("]", "").trim();
+				logDetailsDto = gson.fromJson(jsonString, LogDetailsDto.class);
 
 				logDetailsDto.setRawResponse(gson.toJson(JsonParser.parseString(logDetailsDto.getRawResponse())));
 				logDetailsDto.setUserReqData(gson.toJson(JsonParser.parseString(logDetailsDto.getUserReqData())));
