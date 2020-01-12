@@ -7,6 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Window;
+import sample.util.AlertHelper;
+import sample.util.HandleHttpConnection;
+import sample.util.LogDetailsDto;
 
 public class LogDetailsController {
 
@@ -34,6 +37,7 @@ public class LogDetailsController {
 	@FXML
 	public TextArea rawResponse;
 
+	@FXML
 	protected void handleSubmitButtonAction(ActionEvent actionEvent) {
 		Window owner = searchButton.getScene().getWindow();
 		if (systemReferenceId.getText().isEmpty()) {
@@ -41,6 +45,17 @@ public class LogDetailsController {
 					"Please enter System Reference Id.");
 			return;
 		}
+
+		String systemRefId = systemReferenceId.getText();
+		HandleHttpConnection handleHttpConnection = new HandleHttpConnection();
+		LogDetailsDto logDetailsDto = handleHttpConnection.getResponse(systemRefId);
+
+		createdDate.setText(logDetailsDto.getCreatedDate());
+		matchPercentage.setText(logDetailsDto.getMatchPercentage());
+		sourceImgUri.setText(logDetailsDto.getSourceImgUri());
+		targetImgUri.setText(logDetailsDto.getTargetImgUri());
+		rawResponse.setText(logDetailsDto.getRawResponse());
+		userReqData.setText(logDetailsDto.getUserReqData());
 
 	}
 }

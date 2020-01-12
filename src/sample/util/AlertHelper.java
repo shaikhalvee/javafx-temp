@@ -1,11 +1,8 @@
-package sample;
+package sample.util;
 
 import javafx.scene.control.Alert;
 import javafx.stage.Window;
 
-/**
- * Created by rajeevkumarsingh on 02/05/17.
- */
 public class AlertHelper {
 
     public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {

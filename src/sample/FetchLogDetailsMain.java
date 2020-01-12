@@ -5,24 +5,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import sample.util.Constants;
 
 public class FetchLogDetailsMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Parameters parameters = (this).getParameters();
+        System.out.println(parameters.getRaw());
+        Constants.ip = parameters.getRaw().get(0);
+        Constants.port = parameters.getRaw().get(1);
+
         Parent root = FXMLLoader.load(getClass().getResource("log_details.fxml"));
         primaryStage.setTitle("JavaFx Application for Request & Response");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-
-//        Button btn1=new Button("Say, Hello World");
-//        btn1.setOnAction(arg -> System.out.println("hello world"));
-//        StackPane root=new StackPane();
-//        root.getChildren().add(btn1);
-//        Scene scene=new Scene(root,600,400);
-//        primaryStage.setTitle("First JavaFX Application");
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
     }
 
 
