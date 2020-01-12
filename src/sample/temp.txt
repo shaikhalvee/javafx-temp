@@ -1,0 +1,12 @@
+GET:http://103.23.42.207:30001/data-processing-system/matchUserFaceWithNID/get-log-details?systemRefId=DPS009D714030500000000000
+
+[
+    {
+        "sourceImgUri": "DPS009D714030500000000000_S_userPicture.JPEG",
+        "targetImgUri": "nid/2355268497_1578642065821-pic.JPEG",
+        "matchPercentage": "98.73",
+        "rawResponse": "{\"faceMatched\":true,\"matchPercent\":\"98.73\",\"textMatched\":{\"nameMatched\":true,\"nameMatchPercent\":\"100\",\"nameFromEC\":\"Biswajit Debnath\",\"banglaNameMatched\":true,\"banglaNameMatchPercent\":\"100\",\"banglaNameFromEC\":\"বিশ্বজিৎ দেবনাথ\",\"fatherNameMatched\":true,\"fatherNameMatchPercent\":\"100\",\"fatherNameFromEC\":\"শান্তি ভূষণ দেবনাথ\",\"husbandNameMatched\":true,\"husbandNameMatchPercent\":\"0.00\",\"husbandNameFromEC\":\"\",\"mothersNameMatched\":true,\"mothersNameMatchPercent\":\"100\",\"mothersNameFromEC\":\"মঞ্জু রাণী দেবী\",\"genderMatched\":true,\"genderMatchPercent\":\"20\",\"genderFromEC\":\"MALE\"},\"isMatchedUserData\":true,\"systemRefId\":\"DPS009D714030500000000000\"}",
+        "userReqData": "{\"nidNumber\":\"2355268497\",\"nidDOB\":\"1994/12/27\",\"name\":\"BISWAJIT DEBNATH\",\"banglaName\":\"বিশ্বজিৎ দেবনাথ\",\"fatherName\":\"শান্তি ভূষণ দেবনাথ\",\"husbandName\":\"\",\"mothersName\":\"মঞ্জু রাণী দেবী\",\"gender\":\"OTHER\"}",
+        "createdDate": "2020-01-10 13:56:23.166"
+    }
+]
