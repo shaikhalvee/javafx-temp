@@ -46,16 +46,21 @@ public class LogDetailsController {
 			return;
 		}
 
-		String systemRefId = systemReferenceId.getText();
-		HandleHttpConnection handleHttpConnection = new HandleHttpConnection();
-		LogDetailsDto logDetailsDto = handleHttpConnection.getResponse(systemRefId);
+		try {
+			String systemRefId = systemReferenceId.getText();
+			HandleHttpConnection handleHttpConnection = new HandleHttpConnection();
+			LogDetailsDto logDetailsDto = handleHttpConnection.getResponse(systemRefId);
 
-		createdDate.setText(logDetailsDto.getCreatedDate());
-		matchPercentage.setText(logDetailsDto.getMatchPercentage() + " %");
-		sourceImgUri.setText(logDetailsDto.getSourceImgUri());
-		targetImgUri.setText(logDetailsDto.getTargetImgUri());
-		rawResponse.setText(logDetailsDto.getRawResponse());
-		userReqData.setText(logDetailsDto.getUserReqData());
-
+			createdDate.setText(logDetailsDto.getCreatedDate());
+			matchPercentage.setText(logDetailsDto.getMatchPercentage() + " %");
+			sourceImgUri.setText(logDetailsDto.getSourceImgUri());
+			targetImgUri.setText(logDetailsDto.getTargetImgUri());
+			rawResponse.setText(logDetailsDto.getRawResponse());
+			userReqData.setText(logDetailsDto.getUserReqData());
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			AlertHelper.showAlert(Alert.AlertType.ERROR, owner, "Error!",
+					ex.getMessage());
+		}
 	}
 }
